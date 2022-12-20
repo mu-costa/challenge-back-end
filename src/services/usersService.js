@@ -22,6 +22,13 @@ const usersService = {
           });
         return data;
     },
+    getUserRepo: async (username) => {
+        const { data } = await octokit.request('GET /users/{username}/'
+        + 'repos{?type,sort,direction,per_page,page}', {
+            username,
+          });
+        return data;
+    },
 };
 
 module.exports = usersService;
