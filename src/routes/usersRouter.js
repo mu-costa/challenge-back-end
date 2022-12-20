@@ -3,6 +3,7 @@ const usersController = require('../controllers/usersController');
 
 const usersRouter = Router();
 
-usersRouter.get('/', usersController.getUsers);
+usersRouter.get('/', usersController.coffee);
+usersRouter.get('/users', usersController.getUsers);
 
 module.exports = usersRouter;

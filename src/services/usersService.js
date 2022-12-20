@@ -5,8 +5,21 @@ const token = process.env.TOKEN;
 const octokit = new Octokit({ auth: token });
 
 const usersService = {
-    getUsers: async () => {
+    coffee: async () => {
         const data = await octokit.request('GET /octocat', {});
+        return data;
+    },
+    getUsers: async (since) => {
+        const { data } = await octokit.request('GET /users{?since,per_page}', {
+            since,
+            per_page: '10',
+        });
+        return data;
+    },
+    getUserDetails: async (username) => {
+        const { data } = await octokit.request('GET /users/{username}', {
+            username,
+          });
         return data;
     },
 };
