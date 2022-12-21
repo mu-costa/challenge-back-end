@@ -13,4 +13,4 @@ services:
     command: bash
     restart: always
     ports:
-      - 3002:3001
+      - 3001:3001

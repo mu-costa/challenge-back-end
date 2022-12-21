@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { Octokit } = require('@octokit/core');
 
 const token = process.env.TOKEN;
@@ -28,6 +29,10 @@ const usersService = {
             username,
           });
         return data;
+    },
+    getLimitRate: async () => {
+        const rate = await octokit.request('GET /rate_limit', {});
+        return rate;
     },
 };
 
