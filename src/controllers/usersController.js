@@ -20,6 +20,10 @@ const usersController = {
         const data = await usersService.getUserRepo(username);
         res.status(200).json(data);
     },
+    getRateLimit: async (req, res) => {
+        const data = await usersService.getLimitRate();
+        res.status(200).json(data);
+    },
 };
 
 module.exports = usersController;
